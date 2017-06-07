@@ -1,0 +1,1 @@
+# NoAnnoyance GNOME Shell Extension

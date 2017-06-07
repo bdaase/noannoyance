@@ -1,0 +1,8 @@
+{
+  "name": "NoAnnoyance",
+  "description": "Removes the \u201cWindows is ready\u201d notification and puts the window into focus.",
+  "uuid": "noannoyance@sindex.com",
+  "shell-version": ["3.22.*"],
+  "version": 1,
+  "url": "https://github.com/sindex/no-annoyance"
+}
