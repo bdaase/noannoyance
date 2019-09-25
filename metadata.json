@@ -1,18 +1,11 @@
 {
-  "description": "Removes the 'Windows is ready' notification and puts the window into focus.", 
+  "description": "Another extension, that eemoves the 'Windows is ready' notification and puts the window into focus. In contrast to the all the other extensions, this uses ES6 syntax and is actively maintained.", 
   "name": "NoAnnoyance", 
   "shell-version": [
-    "3.18", 
-    "3.20", 
-    "3.22", 
-    "3.24",
-    "3.26",
-    "3.28",
     "3.30",
     "3.32",
     "3.34"
   ], 
-  "url": "https://github.com/sindex/no-annoyance", 
-  "uuid": "noannoyance@sindex.com", 
-  "version": 3
+  "url": "https://github.com/BjoernDaase/no-annoyance", 
+  "uuid": "noannoyance@daase.net"
 }
