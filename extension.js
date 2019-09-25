@@ -8,7 +8,7 @@ class StealMyFocus {
     this._tracker = Shell.WindowTracker.get_default();
     log('Disabling Window Is Ready Notification');
     global.display.disconnect(Main.windowAttentionHandler._windowDemandsAttentionId);
-    this._handlerid = global.display.connect('window-demands-attention', Lang.bind(this, this._onWindowDemandsAttention));
+    this._handlerid = global.display.connect('window-demands-attention', this._onWindowDemandsAttention(this));
   }
 
   _onWindowDemandsAttention(display, window) {
@@ -17,7 +17,7 @@ class StealMyFocus {
 
   destroy() {
     global.display.disconnect(this._handlerid);
-    global.display.connect('window-demands-attention', Lang.bind(Main.windowAttentionHandler, Main.windowAttentionHandler._onWindowDemandsAttention));
+    global.display.connect('window-demands-attention', Main.windowAttentionHandler._onWindowDemandsAttention(Main.windowAttentionHandler));
   }
 }
 
