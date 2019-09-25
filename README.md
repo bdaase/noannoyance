@@ -12,7 +12,7 @@ This is a fork of https://github.com/sindex/no-annoyance, so thank you Alex for 
 3.34  
 
 ## Installation
-1. git clone git://github.com/BjoernDaase/no-annoyance
-2. mv -r no-annoyance ~/.local/share/gnome-shell/extensions
+1. git clone git://github.com/BjoernDaase/noannoyance@daase.net
+2. mv -r noannoyance@daase.net ~/.local/share/gnome-shell/extensions
 3. Activate the extension in GNOME Tweaks
 
