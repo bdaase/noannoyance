@@ -3,39 +3,29 @@ const WindowAttentionHandler = imports.ui.windowAttentionHandler;
 const Shell = imports.gi.Shell;
 const Lang = imports.lang;
 
-function StealMyFocus() {
-  this._init();
-}
-
-function WindowIsReadyRemover() {
-  this._init();
-}
-
-StealMyFocus.prototype = {
-  _init : function() {
+class StealMyFocus {
+  constructor() {
     this._tracker = Shell.WindowTracker.get_default();
     this._handlerid = global.display.connect('window-demands-attention', Lang.bind(this, this._onWindowDemandsAttention));
-  },
+  }
 
-  _onWindowDemandsAttention: function(display, window) {
+  _onWindowDemandsAttention(display, window) {
     Main.activateWindow(window);
-  },
+  }
 
-  destroy: function () {
+  destroy() {
     global.display.disconnect(this._handlerid);
   }
 }
 
-
-WindowIsReadyRemover.prototype = {
-
-  _init : function() {
+class WindowIsReadyRemover {
+  constructor() {
     this._tracker = Shell.WindowTracker.get_default();
     log('Disabling Window Is Ready Notification')
     global.display.disconnect(Main.windowAttentionHandler._windowDemandsAttentionId);
-  },
+  }
 
-  destroy: function () {
+  destroy() {
     global.display.disconnect(this._handlerid);
   }
 }
