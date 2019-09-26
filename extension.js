@@ -1,7 +1,6 @@
 const Main = imports.ui.main;
 const WindowAttentionHandler = imports.ui.windowAttentionHandler;
 const Shell = imports.gi.Shell;
-const Lang = imports.lang;
 
 class StealMyFocus {
   constructor() {
