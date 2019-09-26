@@ -1,5 +1,5 @@
 {
-  "description": "Another extension, that removes the 'Windows is ready' notification and puts the window into focus. In contrast to the all the other extensions, this uses ES6 syntax and is actively maintained.", 
+  "description": "Another extension, that removes the 'Windows is ready' notification and puts the window into focus. In contrast to all the other extensions, this uses ES6 syntax and is actively maintained.", 
   "name": "NoAnnoyance", 
   "shell-version": [
     "3.30",
