@@ -15,4 +15,3 @@ This is a fork of https://github.com/sindex/no-annoyance, so thank you Alex for 
 1. git clone git://github.com/BjoernDaase/noannoyance
 2. mv -r noannoyance ~/.local/share/gnome-shell/extensions
 3. Activate the extension in GNOME Tweaks
-
