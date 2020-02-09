@@ -1,4 +1,4 @@
-# NoAnnoyance GNOME Shell Extension
+# NoAnnoyance v2 GNOME Shell Extension
 
 ## About
 Another extension, that removes the 'Window is ready' notification and puts the window into focus.  
