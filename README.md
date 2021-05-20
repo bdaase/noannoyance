@@ -7,11 +7,12 @@ In contrast to all the other extensions, this uses ES6 syntax and is actively ma
 This is a fork of https://github.com/sindex/no-annoyance, so thank you Alex for the work you already made.
 
 ## Supported GNOME versions
-3.30  
-3.32  
-3.34  
-3.36
-3.38
+- 3.30
+- 3.32
+- 3.34
+- 3.36
+- 3.38
+- 40
 
 ## Installation
 1. git clone git://github.com/BjoernDaase/noannoyance
