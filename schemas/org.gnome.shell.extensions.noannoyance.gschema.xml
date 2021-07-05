@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+
+  <schema id="org.gnome.shell.extensions.noannoyance" path="/org/gnome/shell/extensions/noannoyance/">
+    <key type="b" name="enable-blacklist">
+      <default>true</default>
+      <summary>Enable blacklist.</summary>
+      <description>If set, it will prevent defined applications (by wm_class) from stealing focus.</description>
+    </key>
+    <key name="by-class" type="as">
+      <default>['Microsoft Teams - Preview']</default>
+      <summary>By WM class</summary>
+      <description>List of WM classes to modify.</description>
+    </key>
+  </schema>
+
+</schemalist>
