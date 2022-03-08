@@ -14,6 +14,7 @@ This is a fork of https://github.com/sindex/no-annoyance, so thank you Alex for 
 - 3.38
 - 40
 - 41
+- 42
 
 ## Installation
 1. git clone git://github.com/BjoernDaase/noannoyance
