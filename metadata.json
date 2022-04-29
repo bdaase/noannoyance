@@ -5,11 +5,6 @@
   "gettext-domain": "gnome-shell-extension-noannoyance",
   "settings-schema": "org.gnome.shell.extensions.noannoyance",
   "shell-version": [
-    "3.30",
-    "3.32",
-    "3.34",
-    "3.36",
-    "3.38",
     "40",
     "41",
     "42"
