@@ -75,7 +75,7 @@ function buildPrefsWidget() {
     });
 
     const indicatorIdColumn = new Gtk.TreeViewColumn({
-        title: 'WM_CLASS List ("Alt + F2" > Run "lg" > Click "Windows")',
+        title: 'WM__CLASS List ("Alt + F2" > Run "lg" > Click "Windows")',
         sizing: Gtk.TreeViewColumnSizing.AUTOSIZE,
     });
 
