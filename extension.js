@@ -30,15 +30,13 @@ class StealMyFocus {
     if (!window || window.has_focus() || window.is_skip_taskbar())
             return;
 
-    global.log(window.get_wm_class());
-
     let settings = getSettings();
-    let preventDisable = settings.get_boolean('enable-blacklist');
+    let preventDisable = settings.get_boolean('enable-ignorelist');
     let byClassList = settings.get_strv('by-class');
 
     if (preventDisable) {
       if (byClassList.includes(window.get_wm_class())) {
-        global.log("stealing focus ignored");
+        global.log(`Ignored "${window.get_wm_class()}"s Request to Steal Focus`);
         return;
       }
     }

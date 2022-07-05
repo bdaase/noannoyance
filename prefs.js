@@ -13,7 +13,7 @@ const Me = ExtensionUtils.getCurrentExtension();
 
 
 const WMCLASS_LIST = 'by-class';
-const BLACKLIST_ENABLED = 'enable-blacklist';
+const IGNORELIST_ENABLED = 'enable-ignorelist';
 
 function init() {}
 
@@ -28,7 +28,7 @@ function buildPrefsWidget() {
         margin_bottom: 60,
     });
 
-    let enableBlacklistBox = new Gtk.Box({
+    let enableIgnorelistBox = new Gtk.Box({
         orientation: Gtk.Orientation.HORIZONTAL,
     });
     let wmClassBox = new Gtk.Box({
@@ -36,29 +36,29 @@ function buildPrefsWidget() {
     });
 
     let toggleLabel = new Gtk.Label({
-        label: "Enable Blacklist",
+        label: "Enable Ignorelist",
         halign: Gtk.Align.START,
         hexpand: true,
         visible: true,
     });
 
     let toggle = new Gtk.Switch({
-        active: this.settings.get_boolean(BLACKLIST_ENABLED),
+        active: this.settings.get_boolean(IGNORELIST_ENABLED),
         halign: Gtk.Align.END,
         visible: true,
     });
 
-    enableBlacklistBox.append(toggleLabel);
-    enableBlacklistBox.append(toggle);
+    enableIgnorelistBox.append(toggleLabel);
+    enableIgnorelistBox.append(toggle);
 
     this.settings.bind(
-        BLACKLIST_ENABLED,
+        IGNORELIST_ENABLED,
         toggle,
         "active",
         Gio.SettingsBindFlags.DEFAULT
     );
 
-    settingsBox.append(enableBlacklistBox);
+    settingsBox.append(enableIgnorelistBox);
 
     const customListStore = new Gtk.ListStore();
     customListStore.set_column_types([GObject.TYPE_STRING]);
@@ -75,7 +75,7 @@ function buildPrefsWidget() {
     });
 
     const indicatorIdColumn = new Gtk.TreeViewColumn({
-        title: "WM__CLASS List",
+        title: 'WM__CLASS List ("Alt + F2" > Run "lg" > Click "Windows")',
         sizing: Gtk.TreeViewColumnSizing.AUTOSIZE,
     });
 
