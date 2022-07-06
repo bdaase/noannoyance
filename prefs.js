@@ -9,8 +9,6 @@ const {
 } = imports.gi;
 
 const ExtensionUtils = imports.misc.extensionUtils;
-const Me = ExtensionUtils.getCurrentExtension();
-
 
 const WMCLASS_LIST = 'by-class';
 const IGNORELIST_ENABLED = 'enable-ignorelist';
@@ -18,7 +16,7 @@ const IGNORELIST_ENABLED = 'enable-ignorelist';
 function init() {}
 
 function buildPrefsWidget() {
-    this.settings = ExtensionUtils.getSettings(
+    let settings = ExtensionUtils.getSettings(
         "org.gnome.shell.extensions.noannoyance"
     );
 
@@ -51,7 +49,7 @@ function buildPrefsWidget() {
     enableIgnorelistBox.append(toggleLabel);
     enableIgnorelistBox.append(toggle);
 
-    this.settings.bind(
+    settings.bind(
         IGNORELIST_ENABLED,
         toggle,
         "active",

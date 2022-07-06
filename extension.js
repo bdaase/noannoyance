@@ -1,22 +1,5 @@
 const Main = imports.ui.main;
-
-const Gio = imports.gi.Gio;
-const Me = imports.misc.extensionUtils.getCurrentExtension();
-
-function getSettings() {
-  let GioSSS = Gio.SettingsSchemaSource;
-  let schemaSource = GioSSS.new_from_directory(
-      Me.dir.get_child("schemas").get_path(),
-      GioSSS.get_default(),
-      false
-  );
-  let schemaObj = schemaSource.lookup('org.gnome.shell.extensions.noannoyance', true);
-  if (!schemaObj) {
-      throw new Error('cannot find schemas');
-  }
-  return new Gio.Settings({ settings_schema: schemaObj });
-}
-
+const ExtensionUtils = imports.misc.extensionUtils;
 
 class StealMyFocus {
   constructor() {
@@ -30,7 +13,7 @@ class StealMyFocus {
     if (!window || window.has_focus() || window.is_skip_taskbar())
             return;
 
-    let settings = getSettings();
+    let settings = ExtensionUtils.getSettings('org.gnome.shell.extensions.noannoyance');
     let preventDisable = settings.get_boolean('enable-ignorelist');
     let byClassList = settings.get_strv('by-class');
 
@@ -69,6 +52,7 @@ function enable() {
 
 function disable() {
   stealmyfocus.destroy();
+  stealmyfocus = null;
 
   oldHandler._windowDemandsAttentionId = global.display.connect('window-demands-attention', oldHandler._onWindowDemandsAttention.bind(oldHandler));
   oldHandler._windowMarkedUrgentId = global.display.connect('window-marked-urgent', oldHandler._onWindowDemandsAttention.bind(oldHandler));
