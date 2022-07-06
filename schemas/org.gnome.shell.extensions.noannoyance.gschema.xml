@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+
+  <schema id="org.gnome.shell.extensions.noannoyance" path="/org/gnome/shell/extensions/noannoyance/">
+    <key type="b" name="enable-ignorelist">
+      <default>true</default>
+      <summary>Enable ignorelist.</summary>
+      <description>If set, it will prevent defined applications (by their WM_CLASS property) from stealing focus.</description>
+    </key>
+    <key name="by-class" type="as">
+      <default>['Microsoft Teams - Preview']</default>
+      <summary>By WM_CLASS</summary>
+      <description>List of 'WM_CLASS'es to modify.</description>
+    </key>
+  </schema>
+
+</schemalist>

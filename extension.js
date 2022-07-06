@@ -1,16 +1,46 @@
 const Main = imports.ui.main;
 
+const Gio = imports.gi.Gio;
+const Me = imports.misc.extensionUtils.getCurrentExtension();
+
+function getSettings() {
+  let GioSSS = Gio.SettingsSchemaSource;
+  let schemaSource = GioSSS.new_from_directory(
+      Me.dir.get_child("schemas").get_path(),
+      GioSSS.get_default(),
+      false
+  );
+  let schemaObj = schemaSource.lookup('org.gnome.shell.extensions.noannoyance', true);
+  if (!schemaObj) {
+      throw new Error('cannot find schemas');
+  }
+  return new Gio.Settings({ settings_schema: schemaObj });
+}
+
+
 class StealMyFocus {
   constructor() {
     this._windowDemandsAttentionId = global.display.connect('window-demands-attention', this._onWindowDemandsAttention.bind(this));
     this._windowMarkedUrgentId = global.display.connect('window-marked-urgent', this._onWindowDemandsAttention.bind(this));
+  
     log("Disabling 'Window Is Ready' Notification");
   }
 
   _onWindowDemandsAttention(display, window) {
     if (!window || window.has_focus() || window.is_skip_taskbar())
             return;
-            
+
+    let settings = getSettings();
+    let preventDisable = settings.get_boolean('enable-ignorelist');
+    let byClassList = settings.get_strv('by-class');
+
+    if (preventDisable) {
+      if (byClassList.includes(window.get_wm_class())) {
+        global.log(`Ignored "${window.get_wm_class()}"s Request to Steal Focus`);
+        return;
+      }
+    }
+
     Main.activateWindow(window);
   }
 
