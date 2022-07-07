@@ -41,7 +41,7 @@ function buildPrefsWidget() {
     });
 
     let toggle = new Gtk.Switch({
-        active: this.settings.get_boolean(IGNORELIST_ENABLED),
+        active: settings.get_boolean(IGNORELIST_ENABLED),
         halign: Gtk.Align.END,
         visible: true,
     });
