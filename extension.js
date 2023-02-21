@@ -25,6 +25,7 @@ class StealMyFocus {
     }
 
     Main.activateWindow(window);
+    window.change_workspace(global.workspace_manager.get_active_workspace());
   }
 
   destroy() {
